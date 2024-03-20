@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cube Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #565656;
+      text-align: center;
+      padding-top: 50px;
+    }
+    input[type="number"] {
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #52fcf3;
+      color: solid white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00b3aa;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Cube Calculator</h2>
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="calculateCube()">Calculate Cube</button>
+  <button onclick="resetForm()">Reset</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateCube() {
+      var inputValue = document.getElementById('number').value;
+      var number = parseFloat(inputValue);
+
+      if (!isNaN(number)) {
+        var cube = Math.pow(number, 3);
+        document.getElementById('result').innerHTML = "Cube of " + number + " is " + cube;
+      } else {
+        document.getElementById('result').innerHTML = "Please enter a valid number!";
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('number').value = '';
+      document.getElementById('result').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
